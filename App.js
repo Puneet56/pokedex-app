@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
 	pokedexContainer: {
 		position: "relative",
 		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
+		alignItems: "start",
+		justifyContent: "start",
 		backgroundColor: "#e53b3b",
 		width: "100%",
 		height: "100%",
@@ -39,6 +39,8 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		width: "100%",
 		height: "100%",
+		maxHeight: "80%",
+		aspectRatio: 0.67,
 	},
 	infoContainer: {
 		position: "absolute",

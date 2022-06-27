@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View, Button, Image } from "react-native";
+import { StyleSheet, Text, View, Button, Image, ImageBackground } from "react-native";
 
 export default function App() {
 	return (
@@ -20,33 +20,39 @@ const bgColor = "#e53b3b";
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		alignItems: "flex-start",
+		alignItems: "center",
 		justifyContent: "flex-start",
+		backgroundColor: "#e53b3b",
 	},
 	pokedexContainer: {
 		position: "relative",
-		flex: 1,
-		alignItems: "start",
-		justifyContent: "start",
-		backgroundColor: "#e53b3b",
-		width: "100%",
-		height: "100%",
+		alignItems: "flex-start",
+		justifyContent: "flex-start",
+		borderColor: "black",
+		borderWidth: 1,
+		width: "450px",
+		maxWidth: "95%",
+		maxHeight: "671px",
+		aspectRatio: 0.67,
 	},
 	pokedexImage: {
+		position: "absolute",
+		top: "50px",
 		flex: 1,
 		resizeMode: "contain",
 		justifyContent: "flex-start",
-		alignItems: "center",
+		alignItems: "flex-start",
 		width: "100%",
 		height: "100%",
-		maxHeight: "80%",
 		aspectRatio: 0.67,
 	},
 	infoContainer: {
 		position: "absolute",
-		top: "26%",
+		top: "36.5vw",
+		left: "9%",
 		width: "82%",
-		aspectRatio: 1.01,
+		maxWidth: "82%",
+		aspectRatio: 1.03,
 		backgroundColor: "black",
 	},
 });

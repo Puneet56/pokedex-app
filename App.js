@@ -1,27 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { useRef, useState } from "react";
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from "react-native";
+import PokedexLayout from "./components/PokedexLayout";
 
 export default function App() {
-	const ref = useRef(null);
-	const [topValue, setTopValue] = useState(0);
-
-	const handleStyleChange = (e) => {
-		console.log("WIDTH", e.nativeEvent.layout.width, "HEIGHT", e.nativeEvent.layout.height);
-		const width = e.nativeEvent.layout.width;
-		const height = e.nativeEvent.layout.height;
-		setTopValue();
-	};
-
-	console.log(topValue);
-
 	return (
 		<View style={styles.container}>
 			<StatusBar style={{ backgroundColor: "black" }} />
-			<View ref={ref} onLayout={handleStyleChange} style={[styles.pokedexContainer]}>
-				<Image source={require("./assets/pokedex.jpg")} style={styles.pokedexImage}></Image>
-				<View style={[styles.infoContainer, { top: topValue }]}></View>
-			</View>
+			{/* <Image source={require("./assets/pokedex.jpg")} style={styles.pokedexImage}></Image>
+				<Image source={require("./assets/pokedex-top.jpg")} style={styles.pokedexTopImage}></Image> */}
+			{/* <View style={[styles.infoContainer]}></View> */}
+			<PokedexLayout />
 		</View>
 	);
 }
@@ -36,17 +25,6 @@ const styles = StyleSheet.create({
 		justifyContent: "flex-start",
 		backgroundColor: "#e53b3b",
 	},
-	pokedexContainer: {
-		position: "relative",
-		alignItems: "flex-start",
-		justifyContent: "flex-start",
-		borderColor: "black",
-		borderWidth: 1,
-		width: "450px",
-		maxWidth: "95%",
-		maxHeight: "671px",
-		aspectRatio: 0.67,
-	},
 	pokedexImage: {
 		position: "absolute",
 		top: "50px",
@@ -55,12 +33,20 @@ const styles = StyleSheet.create({
 		justifyContent: "flex-start",
 		alignItems: "flex-start",
 		width: "100%",
-		height: "100%",
 		aspectRatio: 0.67,
 	},
+	pokedexTopImage: {
+		display: "flex",
+		borderWidth: 1,
+		borderColor: "blue",
+		resizeMode: "contain",
+		width: "450px",
+		height: "115px",
+		maxHeight: "20%",
+		maxWidth: "100%",
+		aspectRatio: 0.257,
+	},
 	infoContainer: {
-		position: "absolute",
-		left: "9%",
 		width: "82%",
 		maxWidth: "82%",
 		aspectRatio: 1.03,

@@ -1,14 +1,26 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from "react-native";
 
 export default function App() {
+	const ref = useRef(null);
+	const [topValue, setTopValue] = useState(0);
+
+	const handleStyleChange = (e) => {
+		console.log("WIDTH", e.nativeEvent.layout.width, "HEIGHT", e.nativeEvent.layout.height);
+		const width = e.nativeEvent.layout.width;
+		const height = e.nativeEvent.layout.height;
+		setTopValue();
+	};
+
+	console.log(topValue);
+
 	return (
 		<View style={styles.container}>
 			<StatusBar style={{ backgroundColor: "black" }} />
-			<View style={styles.pokedexContainer}>
+			<View ref={ref} onLayout={handleStyleChange} style={[styles.pokedexContainer]}>
 				<Image source={require("./assets/pokedex.jpg")} style={styles.pokedexImage}></Image>
-				<View style={styles.infoContainer}></View>
+				<View style={[styles.infoContainer, { top: topValue }]}></View>
 			</View>
 		</View>
 	);
@@ -48,7 +60,6 @@ const styles = StyleSheet.create({
 	},
 	infoContainer: {
 		position: "absolute",
-		top: "36.5vw",
 		left: "9%",
 		width: "82%",
 		maxWidth: "82%",

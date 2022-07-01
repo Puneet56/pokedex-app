@@ -1,12 +1,13 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import PokedexDisplay from "./PokedexDisplay";
+import BlinkIndicator from "./BlinkIndicator";
 
 const PokedexLayout = () => {
 	return (
 		<View style={styles.pokedexContainer}>
 			<View style={styles.header}>
-				<Text>a</Text>
+				<BlinkIndicator />
 				<Text style={styles.heading}>PokeDex</Text>
 			</View>
 			<View style={styles.displayContainer}>
@@ -28,13 +29,15 @@ const styles = StyleSheet.create({
 	pokedexContainer: {
 		alignItems: "center",
 		justifyContent: "flex-start",
-		borderColor: "black",
-		borderWidth: 1,
-		width: "450px",
+		width: 450,
 		maxWidth: "95%",
-		maxHeight: "671px",
+		maxHeight: 671,
 		aspectRatio: 0.67,
-		marginTop: "50px",
+		borderRadius: 10,
+		borderColor: "black",
+		marginTop: 80,
+		elevation: 20,
+		overflow: "hidden",
 	},
 	header: {
 		paddingHorizontal: "5%",
@@ -45,11 +48,9 @@ const styles = StyleSheet.create({
 		maxWidth: "100%",
 		height: "17%",
 		maxHeight: "17%",
-		backgroundColor: "blue",
+		backgroundColor: "#e62e2e",
 	},
 	heading: {
-		fontSize: "20px",
-		fontWeight: "bold",
 		color: "black",
 	},
 	displayContainer: {
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
 		maxWidth: "100%",
 		height: "60%",
 		maxHeight: "60%",
-		backgroundColor: "yellow",
+		backgroundColor: "#e62e2e",
 		flexDirection: "row",
 		alignItems: "center",
 		justifyContent: "space-between",
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
 		minHeight: "100%",
 		width: "5%",
 		maxWidth: "5%",
-		backgroundColor: "green",
+		backgroundColor: "#e62e2e",
 	},
 	footer: {
 		paddingHorizontal: "5%",
@@ -78,6 +79,6 @@ const styles = StyleSheet.create({
 		maxWidth: "100%",
 		height: "23%",
 		maxHeight: "23%",
-		backgroundColor: "purple",
+		backgroundColor: "#e62e2e",
 	},
 });

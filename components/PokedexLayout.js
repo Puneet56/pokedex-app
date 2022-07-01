@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import PokedexDisplay from "./PokedexDisplay";
 import BlinkIndicator from "./BlinkIndicator";
+import CaptureButton from "./CaptureButton";
 
 const PokedexLayout = () => {
 	return (
@@ -16,7 +17,7 @@ const PokedexLayout = () => {
 				<View style={styles.rims}></View>
 			</View>
 			<View style={styles.footer}>
-				<Text>a</Text>
+				<CaptureButton />
 				<Text style={styles.heading}>PokeDex</Text>
 			</View>
 		</View>
@@ -38,6 +39,8 @@ const styles = StyleSheet.create({
 		marginTop: 80,
 		elevation: 20,
 		overflow: "hidden",
+		borderWidth: 2,
+		borderColor: "black",
 	},
 	header: {
 		paddingHorizontal: "5%",
@@ -51,6 +54,7 @@ const styles = StyleSheet.create({
 		backgroundColor: "#e62e2e",
 	},
 	heading: {
+		fontSize: 30,
 		color: "black",
 	},
 	displayContainer: {

@@ -2,16 +2,19 @@ import { StatusBar } from "expo-status-bar";
 import { useRef, useState } from "react";
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from "react-native";
 import PokedexLayout from "./components/PokedexLayout";
+import ContextProvider from "./Context/Context";
 
 export default function App() {
 	return (
-		<View style={styles.container}>
-			<StatusBar style={{ backgroundColor: "black" }} />
-			{/* <Image source={require("./assets/pokedex.jpg")} style={styles.pokedexImage}></Image>
+		<ContextProvider>
+			<View style={styles.container}>
+				<StatusBar style={{ backgroundColor: "black" }} />
+				{/* <Image source={require("./assets/pokedex.jpg")} style={styles.pokedexImage}></Image>
 				<Image source={require("./assets/pokedex-top.jpg")} style={styles.pokedexTopImage}></Image> */}
-			{/* <View style={[styles.infoContainer]}></View> */}
-			<PokedexLayout />
-		</View>
+				{/* <View style={[styles.infoContainer]}></View> */}
+				<PokedexLayout />
+			</View>
+		</ContextProvider>
 	);
 }
 

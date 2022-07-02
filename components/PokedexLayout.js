@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 import PokedexDisplay from "./PokedexDisplay";
 import BlinkIndicator from "./BlinkIndicator";
 import CaptureButton from "./CaptureButton";
+import ListingButton from "./ListingButton";
 
 const PokedexLayout = () => {
 	return (
@@ -18,7 +19,7 @@ const PokedexLayout = () => {
 			</View>
 			<View style={styles.footer}>
 				<CaptureButton />
-				<Text style={styles.heading}>PokeDex</Text>
+				<ListingButton />
 			</View>
 		</View>
 	);

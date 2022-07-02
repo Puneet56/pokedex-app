@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { Camera, CameraType, takePictureAsync } from "expo-camera";
+import { useAppContext } from "./../Context/Context";
 
 const PokedexDisplay = () => {
 	const [hasPermission, setHasPermission] = useState(null);
-	const [cameraReady, setCameraReady] = useState(false);
-	let camera;
+
+	const { setCameraReady, setCameraRef } = useAppContext();
 
 	useEffect(() => {
 		(async () => {
@@ -22,16 +23,8 @@ const PokedexDisplay = () => {
 	}
 
 	const handleCameraReady = () => {
+		console.log("Camera ready");
 		setCameraReady(true);
-	};
-
-	const handleImageCapture = async () => {
-		try {
-			const photo = await camera.takePictureAsync();
-			console.log(photo);
-		} catch (err) {
-			console.log(err);
-		}
 	};
 
 	return (
@@ -39,13 +32,12 @@ const PokedexDisplay = () => {
 			<View style={styles.displayContainer}>
 				<Camera
 					ref={(r) => {
-						camera = r;
+						setCameraRef(r);
 					}}
 					onCameraReady={handleCameraReady}
 					style={styles.camera}
 					type={CameraType.back}
 				></Camera>
-				<Button title="Capture" onPress={handleImageCapture} />
 			</View>
 		</>
 	);
@@ -64,7 +56,7 @@ const styles = StyleSheet.create({
 	},
 	camera: {
 		width: "100%",
-		height: "80%",
+		height: "100%",
 	},
 	captureButton: {
 		position: "absolute",

@@ -4,6 +4,8 @@ import PokedexDisplay from "./PokedexDisplay";
 import BlinkIndicator from "./BlinkIndicator";
 import CaptureButton from "./CaptureButton";
 import ListingButton from "./ListingButton";
+import { useAppContext } from "./../../Context/Context";
+import PokemonName from "./PokemonName";
 
 const PokedexLayout = () => {
 	return (
@@ -16,6 +18,9 @@ const PokedexLayout = () => {
 				<View style={styles.rims}></View>
 				<PokedexDisplay />
 				<View style={styles.rims}></View>
+			</View>
+			<View style={styles.nameContainer}>
+				<PokemonName />
 			</View>
 			<View style={styles.footer}>
 				<CaptureButton />
@@ -57,6 +62,7 @@ const styles = StyleSheet.create({
 	heading: {
 		fontSize: 30,
 		color: "black",
+		fontFamily: "Dot",
 	},
 	displayContainer: {
 		width: "100%",
@@ -75,6 +81,14 @@ const styles = StyleSheet.create({
 		maxWidth: "5%",
 		backgroundColor: "#e62e2e",
 	},
+	nameContainer: {
+		width: "100%",
+		maxWidth: "100%",
+		height: "8%",
+		alignItems: "center",
+		justifyContent: "flex-end",
+		backgroundColor: "#e62e2e",
+	},
 	footer: {
 		paddingHorizontal: "5%",
 		flexDirection: "row",
@@ -82,7 +96,7 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		width: "100%",
 		maxWidth: "100%",
-		height: "23%",
+		height: "15%",
 		maxHeight: "23%",
 		backgroundColor: "#e62e2e",
 	},

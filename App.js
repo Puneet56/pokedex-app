@@ -1,17 +1,28 @@
 import { StatusBar } from "expo-status-bar";
 import { useRef, useState } from "react";
 import { StyleSheet, Text, View, Button, Image, ImageBackground } from "react-native";
-import PokedexLayout from "./components/PokedexLayout";
+import PokedexLayout from "./components/pokedexLayout";
 import ContextProvider from "./Context/Context";
+import { useFonts } from "expo-font";
+import { Feather } from "@expo/vector-icons";
 
 export default function App() {
+	let [fontsLoaded] = useFonts({
+		Dot: require("./assets/DotGothic16-Regular.ttf"),
+	});
+
+	if (!fontsLoaded) {
+		return (
+			<View style={{ alignItems: "center", justifyContent: "center" }}>
+				<Feather name="loader" size={24} color="black" />
+			</View>
+		);
+	}
+
 	return (
 		<ContextProvider>
 			<View style={styles.container}>
 				<StatusBar style={{ backgroundColor: "black" }} />
-				{/* <Image source={require("./assets/pokedex.jpg")} style={styles.pokedexImage}></Image>
-				<Image source={require("./assets/pokedex-top.jpg")} style={styles.pokedexTopImage}></Image> */}
-				{/* <View style={[styles.infoContainer]}></View> */}
 				<PokedexLayout />
 			</View>
 		</ContextProvider>

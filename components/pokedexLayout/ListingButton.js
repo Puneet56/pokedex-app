@@ -1,13 +1,13 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, Image } from "react-native";
 import React from "react";
-import { useAppContext } from "./../Context/Context";
+import { useAppContext } from "./../../Context/Context";
 
 export default function ListingButton() {
 	const handleShowList = async () => {};
 
 	return (
 		<Pressable style={styles.button} onPress={handleShowList}>
-			<Text style={styles.text}>All PokeMon</Text>
+			<Image style={styles.image} source={require("./../../assets/listbutton.png")}></Image>
 		</Pressable>
 	);
 }
@@ -16,17 +16,19 @@ const styles = StyleSheet.create({
 	button: {
 		alignItems: "center",
 		justifyContent: "center",
-		paddingVertical: 12,
-		paddingHorizontal: 32,
-		borderRadius: 4,
-		elevation: 3,
-		backgroundColor: "#ff7f2d",
+		maxWidth: "40%",
 	},
 	text: {
 		fontSize: 16,
 		lineHeight: 21,
-		fontWeight: "bold",
 		letterSpacing: 0.25,
 		color: "white",
+		fontFamily: "Dot",
+	},
+	image: {
+		flex: 1,
+		resizeMode: "contain",
+		maxWidth: "100%",
+		maxHeight: 65,
 	},
 });
